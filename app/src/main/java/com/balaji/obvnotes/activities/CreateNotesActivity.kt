@@ -2,7 +2,7 @@ package com.balaji.obvnotes.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.text.method.ScrollingMovementMethod
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -21,23 +21,27 @@ class CreateNotesActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
+        binding.edtNotes.movementMethod = ScrollingMovementMethod()
+
         onClicks()
     }
 
     private fun onClicks() {
 
-        binding.btnLogin.setOnClickListener(View.OnClickListener {
+        binding.btnLogin.setOnClickListener {
             when (val result = viewModel.insertFieldsValidation()) {
                 is Boolean ->
                     insertNotes()
                 is Int ->
                     showToast(getString(result))
             }
-        })
+        }
+
     }
 
     private fun insertNotes() {
         viewModel.insertNotes()
+        binding.edtTitle.requestFocus()
         binding.edtTitle.setText("")
         binding.edtNotes.setText("")
     }

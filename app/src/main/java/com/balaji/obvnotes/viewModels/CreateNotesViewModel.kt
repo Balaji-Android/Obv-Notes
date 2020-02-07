@@ -8,7 +8,6 @@ import com.balaji.obvnotes.database.NotesDatabase
 import com.balaji.obvnotes.entities.NotesEntity
 import com.balaji.obvnotes.repository.NotesRepository
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class CreateNotesViewModel(application: Application) : AndroidViewModel(application) {
 

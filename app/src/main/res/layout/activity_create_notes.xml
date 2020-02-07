@@ -8,8 +8,7 @@
             type="com.balaji.obvnotes.viewModels.CreateNotesViewModel" />
     </data>
 
-    <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -18,14 +17,16 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_border_grey"
-                android:hint="Title"
+                android:hint="@string/hint_title"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:text="@={viewModel.title}" />
 
@@ -33,16 +34,18 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtNotes"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@drawable/btn_border_grey"
-                android:gravity="top|left"
-                android:hint="Notes..."
+                android:gravity="top|start"
+                android:hint="@string/hint_notes"
                 android:padding="10dp"
+                android:scrollbars="vertical"
                 android:text="@={viewModel.notes}" />
 
         </com.google.android.material.textfield.TextInputLayout>
