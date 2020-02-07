@@ -5,4 +5,6 @@
     <string name="hint_notes">Notes...</string>
     <string name="msg_no_notes">No notes available. \nTap + to add new notes.</string>
     <string name="save">Save</string>
+    <string name="msg_enter_title">Please Enter Title</string>
+    <string name="msg_enter_notes">Please Enter Notes</string>
 </resources>
