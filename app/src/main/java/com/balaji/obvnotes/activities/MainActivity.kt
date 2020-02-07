@@ -1,7 +1,8 @@
-package com.balaji.obvnotes
+package com.balaji.obvnotes.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.balaji.obvnotes.R
 
 class MainActivity : AppCompatActivity() {
 
