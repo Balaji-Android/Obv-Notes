@@ -6,7 +6,7 @@
 
         <variable
             name="clickListener"
-            type="com.balaji.obvnotes.NotesAdapter.ItemClickListener" />
+            type="com.balaji.obvnotes.adapter.NotesAdapter.ItemClickListener" />
 
         <variable
             name="item"

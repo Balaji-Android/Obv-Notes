@@ -24,6 +24,7 @@
                 android:id="@+id/edtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="100"
                 android:background="@drawable/btn_border_grey"
                 android:hint="@string/hint_title"
                 android:maxLines="1"
@@ -49,6 +50,16 @@
                 android:text="@={viewModel.notes}" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="time"
+            android:textAlignment="center"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnLogin"

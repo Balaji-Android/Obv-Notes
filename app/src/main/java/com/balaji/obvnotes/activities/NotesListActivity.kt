@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import com.balaji.obvnotes.NotesAdapter
+import com.balaji.obvnotes.adapter.NotesAdapter
 import com.balaji.obvnotes.R
 import com.balaji.obvnotes.databinding.ActivityNotesListBinding
 import com.balaji.obvnotes.entities.NotesEntity
@@ -33,9 +33,11 @@ class NotesListActivity : AppCompatActivity() {
 
     private fun setNotesList() {
 
-        adapter = NotesAdapter(notesList, NotesAdapter.ItemClickListener {
-            showToast("item clicked")
-        })
+        adapter = NotesAdapter(
+            notesList,
+            NotesAdapter.ItemClickListener {
+                navigateToNotesActivity(it)
+            })
         binding.rvNotes.adapter = adapter
 
         viewModel.fetchNotes()
@@ -59,7 +61,10 @@ class NotesListActivity : AppCompatActivity() {
 
     }
 
-    private fun showToast(msg: String, toastDuration: Int = Toast.LENGTH_SHORT) {
-        Toast.makeText(this, msg, toastDuration).show()
+    private fun navigateToNotesActivity(notes: NotesEntity) {
+        val intent = Intent(this, ViewNotesActivity::class.java)
+        intent.putExtra("notes", notes)
+        startActivity(intent)
     }
+
 }

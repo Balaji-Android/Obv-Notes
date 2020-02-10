@@ -3,6 +3,7 @@ package com.balaji.obvnotes.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -17,13 +18,29 @@ class CreateNotesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_create_notes)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-
         binding.edtNotes.movementMethod = ScrollingMovementMethod()
 
+        initials()
+
         onClicks()
+    }
+
+    private fun initials() {
+
+        if (intent.hasExtra("notes")) {
+            title = "View Notes"
+            binding.edtTitle.isEnabled = false
+            binding.edtNotes.isEnabled = false
+            binding.btnLogin.visibility = View.GONE
+            binding.tvTime.visibility = View.VISIBLE
+        } else {
+            title = "Add Notes"
+        }
+
     }
 
     private fun onClicks() {

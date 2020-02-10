@@ -1,4 +1,4 @@
-package com.balaji.obvnotes
+package com.balaji.obvnotes.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
