@@ -1,5 +1,6 @@
 package com.balaji.obvnotes.repository
 
+import androidx.lifecycle.LiveData
 import com.balaji.obvnotes.dao.NotesDao
 import com.balaji.obvnotes.entities.NotesEntity
 
@@ -9,8 +10,8 @@ class NotesRepository(private val notesDao: NotesDao) {
         notesDao.insertNotes(notesEntity)
     }
 
-    suspend fun getAllNotes(): List<NotesEntity> {
-        return notesDao.getAllNotes()
+    fun getNotes(): LiveData<List<NotesEntity>> {
+        return notesDao.getNotes()
     }
 
 }

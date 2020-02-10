@@ -38,6 +38,7 @@ class NotesListActivity : AppCompatActivity() {
         })
         binding.rvNotes.adapter = adapter
 
+        viewModel.fetchNotes()
         viewModel.notesList.observe(this, Observer {
             notesList.clear()
             notesList.addAll(it)
