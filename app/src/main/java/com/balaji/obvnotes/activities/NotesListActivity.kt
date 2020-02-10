@@ -11,7 +11,6 @@ import com.balaji.obvnotes.databinding.ActivityNotesListBinding
 
 class NotesListActivity : AppCompatActivity() {
 
-
     private lateinit var binding: ActivityNotesListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
