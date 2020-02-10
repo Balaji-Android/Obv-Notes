@@ -30,11 +30,7 @@ class ViewNotesActivity : AppCompatActivity() {
     private fun initials() {
 
         title = "View Notes"
-        if (intent.hasExtra("notes")) {
-            val notes: NotesEntity = intent.getSerializableExtra("notes") as NotesEntity
-            viewModel.title = notes.title
-            viewModel.notes = notes.notes
-        }
+        intent.extras?.let { viewModel.setData(it) }
 
     }
 }

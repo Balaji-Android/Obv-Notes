@@ -15,6 +15,7 @@ class CreateNotesViewModel(application: Application) : AndroidViewModel(applicat
 
     var title: String = ""
     var notes: String = ""
+    lateinit var notesEntity: NotesEntity
 
     init {
         val notesDao = NotesDatabase.getDatabase(application).notesDao()
@@ -22,7 +23,7 @@ class CreateNotesViewModel(application: Application) : AndroidViewModel(applicat
     }
 
     fun insertNotes() = viewModelScope.launch {
-        val notesEntity = NotesEntity(System.currentTimeMillis(), title, notes)
+        notesEntity = NotesEntity(System.currentTimeMillis(), title, notes)
         notesRepository.insertNotes(notesEntity)
     }
 

@@ -1,5 +1,6 @@
 package com.balaji.obvnotes.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
@@ -58,9 +59,10 @@ class CreateNotesActivity : AppCompatActivity() {
 
     private fun insertNotes() {
         viewModel.insertNotes()
-        binding.edtTitle.requestFocus()
-        binding.edtTitle.setText("")
-        binding.edtNotes.setText("")
+        val intent = Intent(this, ViewNotesActivity::class.java)
+        intent.putExtra("notes", viewModel.notesEntity)
+        startActivity(intent)
+        finish()
     }
 
     private fun showToast(msg: String, toastDuration: Int = Toast.LENGTH_SHORT) {
