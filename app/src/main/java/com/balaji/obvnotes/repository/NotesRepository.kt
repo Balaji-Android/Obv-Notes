@@ -9,7 +9,7 @@ class NotesRepository(private val notesDao: NotesDao) {
         notesDao.insertNotes(notesEntity)
     }
 
-    fun getAllNotes(): List<NotesEntity> {
+    suspend fun getAllNotes(): List<NotesEntity> {
         return notesDao.getAllNotes()
     }
 

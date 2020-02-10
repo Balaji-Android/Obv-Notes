@@ -12,6 +12,6 @@ interface NotesDao {
     suspend fun insertNotes(user: NotesEntity)
 
     @Query("SELECT * from notes")
-    fun getAllNotes(): List<NotesEntity>
+    suspend fun getAllNotes(): List<NotesEntity>
 
 }
