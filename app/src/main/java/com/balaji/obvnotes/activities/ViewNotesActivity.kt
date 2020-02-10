@@ -29,7 +29,7 @@ class ViewNotesActivity : AppCompatActivity() {
 
     private fun initials() {
 
-        title = "View Notes"
+        title = getString(R.string.view_notes)
         intent.extras?.let { viewModel.setData(it) }
 
     }

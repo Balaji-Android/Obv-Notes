@@ -3,11 +3,13 @@ package com.balaji.obvnotes.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import com.balaji.obvnotes.Constants
 import com.balaji.obvnotes.adapter.NotesAdapter
 import com.balaji.obvnotes.R
 import com.balaji.obvnotes.databinding.ActivityNotesListBinding
@@ -20,6 +22,7 @@ class NotesListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNotesListBinding
     private var notesList: MutableList<NotesEntity> = ArrayList()
     private lateinit var adapter: NotesAdapter
+    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,17 +57,28 @@ class NotesListActivity : AppCompatActivity() {
     }
 
     private fun onClicks() {
-
         binding.fabAdd.setOnClickListener {
             startActivity(Intent(this, CreateNotesActivity::class.java))
         }
+    }
 
+    private fun showToast(msg: String, toastDuration: Int = Toast.LENGTH_SHORT) {
+        Toast.makeText(this, msg, toastDuration).show()
     }
 
     private fun navigateToNotesActivity(notes: NotesEntity) {
         val intent = Intent(this, ViewNotesActivity::class.java)
-        intent.putExtra("notes", notes)
+        intent.putExtra(Constants.keyNotes, notes)
         startActivity(intent)
     }
 
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+        doubleBackToExitPressedOnce = true
+        showToast(getString(R.string.msg_back_press_again))
+        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+    }
 }

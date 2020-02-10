@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -21,7 +20,6 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="test"
             android:maxLength="100"
             android:textAlignment="center"
             android:maxLines="1"
@@ -42,7 +40,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top|start"
-            android:hint="test"
             android:scrollbars="vertical"
             android:text="@={viewModel.notes}" />
 
@@ -53,7 +50,6 @@
             android:layout_marginTop="5dp"
             android:drawableRight="@drawable/ic_clock"
             android:drawablePadding="5dp"
-            android:hint="test"
             android:text="@={viewModel.time}"
             android:gravity="center|end"/>
 

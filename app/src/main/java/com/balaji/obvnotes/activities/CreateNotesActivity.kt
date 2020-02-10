@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import com.balaji.obvnotes.Constants
 import com.balaji.obvnotes.viewModels.CreateNotesViewModel
 import com.balaji.obvnotes.R
 import com.balaji.obvnotes.databinding.ActivityCreateNotesBinding
@@ -24,24 +25,9 @@ class CreateNotesActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.edtNotes.movementMethod = ScrollingMovementMethod()
-
-        initials()
+        title = getString(R.string.add_notes)
 
         onClicks()
-    }
-
-    private fun initials() {
-
-        if (intent.hasExtra("notes")) {
-            title = "View Notes"
-            binding.edtTitle.isEnabled = false
-            binding.edtNotes.isEnabled = false
-            binding.btnLogin.visibility = View.GONE
-            binding.tvTime.visibility = View.VISIBLE
-        } else {
-            title = "Add Notes"
-        }
-
     }
 
     private fun onClicks() {
@@ -60,7 +46,7 @@ class CreateNotesActivity : AppCompatActivity() {
     private fun insertNotes() {
         viewModel.insertNotes()
         val intent = Intent(this, ViewNotesActivity::class.java)
-        intent.putExtra("notes", viewModel.notesEntity)
+        intent.putExtra(Constants.keyNotes, viewModel.notesEntity)
         startActivity(intent)
         finish()
     }
