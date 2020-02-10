@@ -1,17 +1,16 @@
 package com.balaji.obvnotes.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.balaji.obvnotes.Constants
-import com.balaji.obvnotes.viewModels.CreateNotesViewModel
 import com.balaji.obvnotes.R
 import com.balaji.obvnotes.databinding.ActivityCreateNotesBinding
+import com.balaji.obvnotes.viewModels.CreateNotesViewModel
 
 class CreateNotesActivity : AppCompatActivity() {
 

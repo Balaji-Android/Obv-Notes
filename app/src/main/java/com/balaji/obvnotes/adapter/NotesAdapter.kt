@@ -1,10 +1,12 @@
 package com.balaji.obvnotes.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.balaji.obvnotes.databinding.RowNotesBinding
 import com.balaji.obvnotes.entities.NotesEntity
+import kotlin.random.Random
 
 class NotesAdapter(
     private val items: List<NotesEntity>,
@@ -30,6 +32,12 @@ class NotesAdapter(
         fun bind(item: NotesEntity, clickListener: ItemClickListener) {
             binding.item = item
             binding.clickListener = clickListener
+
+            val random = Random
+            val color =
+                Color.argb(255, random.nextInt(256), random.nextInt(256),
+                    random.nextInt(256))
+            binding.cardBg.setCardBackgroundColor(color)
         }
     }
 
